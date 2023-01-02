@@ -3,7 +3,16 @@ class Movie < ApplicationRecord
   has_many :actors
 
   def actors_youngest_to_oldest
-    # binding.pry
     actors.order(age: :desc)
+  end
+
+  def actors_average_age
+    # binding.pry
+    ages_sum = 0
+    ages = actors.pluck(:age)
+    ages.each do |age|
+      ages_sum += age.to_i
+    end
+    average_age = ages_sum.to_f / ages.count
   end
 end

@@ -26,9 +26,10 @@ RSpec.describe 'show' do
     expect(page).to_not have_content(@mummy.genre)
   end
 
-  it 'will list all actors from youngest to oldest' do
+  it 'will list all actors from youngest to oldest and their average ages' do
     visit "/movies/#{@the_grinch.id}"
 
     expect(@cindy.name).to appear_before(@jim.name)
+    expect(page).to have_content(19.0)
   end
 end
