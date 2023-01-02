@@ -17,23 +17,23 @@ RSpec.describe "index" do
   it 'lists all studios and their name and location' do
     visit '/studios/index'
 
-    expect(page).to have_content("Universal Studios")
-    expect(page).to have_content("Limo Productions")
-    expect(page).to have_content("LA")
-    expect(page).to have_content("Glendale")
+    expect(page).to have_content(@universal.name)
+    expect(page).to have_content(@limo.name)
+    expect(page).to have_content(@universal.location)
+    expect(page).to have_content(@limo.location)
   end
 
   it 'lists all the studios movies and the movies attributes' do
     visit '/studios/index'
 
-    expect(page).to have_content("The Mummy")
-    expect(page).to have_content("1999")
-    expect(page).to have_content("Action")
-    expect(page).to have_content("Legally Blonde")
-    expect(page).to have_content("2000")
-    expect(page).to have_content("comedy")
-    expect(page).to have_content("The Grinch")
-    expect(page).to have_content("2001")
-    expect(page).to have_content("Holiday")
+    expect(page).to have_content(@mummy.title)
+    expect(page).to have_content(@mummy.creation_year)
+    expect(page).to have_content(@mummy.genre)
+    expect(page).to have_content(@legally_blonde.title)
+    expect(page).to have_content(@legally_blonde.creation_year)
+    expect(page).to have_content(@legally_blonde.genre)
+    expect(page).to have_content(@the_grinch.title)
+    expect(page).to have_content(@the_grinch.creation_year)
+    expect(page).to have_content(@the_grinch.genre)
   end
 end
