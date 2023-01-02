@@ -30,6 +30,15 @@ RSpec.describe 'show' do
     visit "/movies/#{@the_grinch.id}"
 
     expect(@cindy.name).to appear_before(@jim.name)
-    expect(page).to have_content(19.0)
+    expect(page).to have_content(19)
+  end
+
+  it 'can add an existing actor to the cast' do
+    visit "/movies/#{@the_grinch.id}"
+
+    fill_in('actor_id', with: "#{@reese.id}")
+    click_button "Add Actor"
+
+    expect(page).to have_content(@reese.name)
   end
 end
