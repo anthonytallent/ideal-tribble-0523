@@ -13,6 +13,6 @@ class Movie < ApplicationRecord
     ages.each do |age|
       ages_sum += age.to_i
     end
-    average_age = ages_sum.to_f / ages.count
+    average_age = ages_sum / ages.count
   end
 end
